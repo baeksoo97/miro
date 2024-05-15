@@ -1,3 +1,33 @@
 {
-  "extends": "next/core-web-vitals"
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "createDefaultProgram": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "airbnb",
+    "airbnb-typescript",
+    "prettier",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "eslint-plugin-simple-import-sort",
+    "unused-imports"
+  ],
+  "rules": {
+    "semi": "off",
+    "@typescript-eslint/semi": "off",
+    // 'React' must be in scope when using JSX error fix (Next.js)
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      { "devDependencies": ["tailwind.config.ts"] }
+    ]
+  },
+  "ignorePatterns": ["node_modules/"] // eslint 미적용될 폴더나 파일 명시
 }
