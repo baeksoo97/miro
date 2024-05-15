@@ -10,10 +10,10 @@ const buildEslintCommand = (filenames) =>
     .join(' --file ')}`
 
 // Check prettier and fix
-// const buildPrettierCommand = (filenames) =>
-//   `prettier --write --ignore-path .gitignore ${filenames.map((f) => path.relative(process.cwd(), f)).join(' ')}`
+const buildPrettierCommand = (filenames) =>
+  `prettier --write --ignore-path .gitignore ${filenames.map((f) => path.relative(process.cwd(), f)).join(' ')}`
 
 module.exports = {
   '*.{ts,tsx}': [buildTypeScriptCommand],
-  '*.{js,jsx,ts,tsx}': [buildEslintCommand],
+  '*.{js,jsx,ts,tsx}': [buildEslintCommand, buildPrettierCommand],
 }
